@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<!-- CSS is here -->
+<style>
+
+body {
+	width: 80%;
+	color: #FFFFFF;
+	background-color: #88CC88;
+	margin: 10px;
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 14px;
+}
+
+#notes {
+    background-color: #116611;
+    font-family: Verdana, Geneva, sans-serif;
+    width: 50%;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px solid #55AA55;
+}
+#results {
+    background-color: #116611;
+    font-family: Verdana, Geneva, sans-serif;
+    width: 50%;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 20px;
+    border: 2px solid #55AA55;
+}
+h2 {
+	width: 50%;
+    margin: 10px;
+    font-family: Verdana, Geneva, sans-serif;
+    text-shadow: 2px 2px 5px #000000;
+}
+h4 {
+    text-shadow: 2px 2px 4px #000000;
+    font-family: Verdana, Geneva, sans-serif;
+}
+ul {
+	list-style-type: none;
+	float: left;
+	width: 200px;
+	margin: 3px;
+	padding: 3px;
+	position: fixed;
+	overflow: auto;
+	color: #FFFFFF;
+}
+p {
+    color: #FFFFFF;
+    font-family: Verdana, Geneva, sans-serif;
+    margin: 20px;
+    font-size: 14px;
+    padding-left: 4px;
+    padding-right: 4px;
+    text-align: left;
+}
+footer {
+    background-color: #116611;
+    width: 50%;
+    padding: 15px;
+    float: center;
+    margin: 10px;
+    border-radius: 15px;
+    border: 2px solid #55AA55;
+}
+#ftext {
+    text-align: center;
+    font-size: 12px;
+    font-family: Verdana, Geneva, sans-serif;
+}
+
+</style>
+
+<script>
+
+// defining variables
+var task1, task2, task3, task4;
+
+// validating form, en saanut toimimaan
+function validateForm() {
+    var x = document.forms["toDo"]["task1"].value;
+    if (x == null || x == "" || x.length < 2) {
+        alert("Please check your text");
+        return false;
+    }
+}
+// clearing the form
+function formReset() {
+document.getElementById("toDo").reset();
+}
+
+// listing the to-dos
+function showList() {
+    document.getElementById("toDo").submit();
+}
+function showList() {
+    var x = document.getElementById("toDo");
+    var text = "";
+    var i;
+    for (i = 0; i < x.length ;i++) {
+        text += x.elements[i].value + "<br><br>";
+    }
+    document.getElementById("submitted").innerHTML = text;
+}
+
+</script>
+
+<head>
+<meta charset="utf-8">
+<title>To-do list</title>
+</head>
+<br>
+<h2> Your personal to-do list</h2>
+<!-- input fields are here -->
+<div id="notes">
+<h4> Please add your notes below</h4>
+
+<form id="toDo" action="#" onsubmit="return validateForm()" method="post">
+Task: <input type="text" name="task1" id="task1"> <br/><br>
+Task: <input type="text" name="task2" id="task2"> <br/><br>
+Task: <input type="text" name="task3" id="task3"> <br/><br>
+Task: <input type="text" name="task4" id="task4"> <br/>
+</form>
+<br>
+<!-- buttons here -->
+<input type="submit" value="Submit" onclick="showList()">
+<button onclick="formReset()">Clear</button>
+</div>
+<!-- list is here -->
+<div id="results">
+<h4>LIST OF NOTES</h4>
+<p id="submitted"></p>
+
+</div>
+<br>
+<footer>
+    <div id="ftext">Some relevant text here</div>
+</footer>
+
+</html>
